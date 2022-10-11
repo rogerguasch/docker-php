@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   php:
-    container_name: php
+    container_name: docker-php
     build:
       context: .
       dockerfile: php/Dockerfile
