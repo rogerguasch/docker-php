@@ -37,7 +37,8 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          file: ./php/Dockerfile
+          context: .
+          file: php/Dockerfile
           tags: rguasch/php:latest
 
   SEND_EMAIL:
