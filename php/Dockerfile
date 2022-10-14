@@ -1,9 +1,14 @@
 ARG PHP_VERSION=8.1.2
+ARG COMPOSER_VERSION=2.4.2
+ARG APCU_VERSION=5.1.22
+ARG XDEBUG_VERSION=3.1.5
+ARG AMQP_VERSION=1.11.0
+
 
 # --------------------------------------------
 # Composer
 # --------------------------------------------
-FROM composer:2.4.2 as composer
+FROM composer:${COMPOSER_VERSION} as composer
 
 # --------------------------------------------
 # base stage
@@ -12,9 +17,9 @@ FROM php:${PHP_VERSION}-fpm AS base
 LABEL maintainer="Roger Guasch <rogerguasch.code@gmail.com>"
 
 RUN apt-get update && apt-get install -y ca-certificates git libzip-dev libpng-dev librabbitmq-dev libicu-dev sudo libpq-dev \
-    && pecl install apcu-5.1.22 \
-    && pecl install xdebug-3.1.5 \
-    && pecl install amqp-1.11.0 \
+    && pecl install apcu-${APCU_VERSION} \
+    && pecl install xdebug-${XDEBUG_VERSION} \
+    && pecl install amqp-${AMQP_VERSION} \
     && pecl install redis
 
 
