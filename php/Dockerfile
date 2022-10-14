@@ -41,9 +41,10 @@ RUN apt-get update && apt-get install symfony-cli
 COPY --from=composer /usr/bin/composer  /usr/bin/composer
 COPY config /usr/local/etc/php/conf.d/
 
-ADD bin/disable_xdebug.sh /usr/local/bin/disable_xdebug
-ADD bin/enable_xdebug.sh /usr/local/bin/enable_xdebug
-RUN chmod u+x /usr/local/bin/disable_xdebug /usr/local/bin/enable_xdebug
+COPY bin/disable_xdebug.sh /usr/local/bin/disable_xdebug
+#ADD bin/enable_xdebug.sh /usr/local/bin/enable_xdebug
+RUN chmod u+x /usr/local/bin/disable_xdebug
+#RUN chmod u+x /usr/local/bin/enable_xdebug
 
 # --------------------------------------------
 # clear
