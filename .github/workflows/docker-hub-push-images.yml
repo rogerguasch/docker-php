@@ -9,9 +9,11 @@ jobs:
   PUSH_PHP_IMAGE_TO_DOCKER_HUB:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - uses: dorny/paths-filter@v2
+      - name: Check if php files or dockerfile was changed
+        uses: dorny/paths-filter@v2
         id: changes
         with:
           filters: |
