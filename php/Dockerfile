@@ -40,7 +40,6 @@ RUN apt-get update && apt-get install symfony-cli
 COPY --from=composer /usr/bin/composer  /usr/bin/composer
 COPY config /usr/local/etc/php/conf.d/
 
-
 # --------------------------------------------
 # clear
 # --------------------------------------------

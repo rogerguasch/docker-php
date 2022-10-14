@@ -10,12 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-#      - uses: dorny/paths-filter@v2
-#        id: changes
-#        with:
-#          filters: |
-#            php:
-#              - 'php/**'
+
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            php:
+              - 'php/**'
 
       - name: Set up QEMU
         if: steps.changes.outputs.php == 'true'
