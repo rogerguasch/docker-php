@@ -37,14 +37,8 @@ RUN echo "Europe/Berlin" > /etc/timezone && dpkg-reconfigure -f noninteractive t
 RUN echo 'deb [trusted=yes] https://repo.symfony.com/apt/ /' | sudo tee /etc/apt/sources.list.d/symfony-cli.list
 RUN apt-get update && apt-get install symfony-cli
 
-
 COPY --from=composer /usr/bin/composer  /usr/bin/composer
 COPY config /usr/local/etc/php/conf.d/
-
-COPY bin/disable_xdebug.sh /usr/local/bin/disable_xdebug
-#ADD bin/enable_xdebug.sh /usr/local/bin/enable_xdebug
-RUN chmod u+x /usr/local/bin/disable_xdebug
-#RUN chmod u+x /usr/local/bin/enable_xdebug
 
 # --------------------------------------------
 # clear
